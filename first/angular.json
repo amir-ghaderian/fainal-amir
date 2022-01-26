@@ -1,14 +1,14 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "a422b6ae-74ba-4114-9f09-d4cf843886b2"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fainal": {
+    "first": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -20,17 +20,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fainal",
+            "outputPath": "dist/first",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.sass"
             ],
             "scripts": []
           },
@@ -71,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fainal:build:production"
+              "browserTarget": "first:build:production"
             },
             "development": {
-              "browserTarget": "fainal:build:development"
+              "browserTarget": "first:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fainal:build"
+            "browserTarget": "first:build"
           }
         },
         "test": {
@@ -92,12 +93,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.sass"
             ],
             "scripts": []
           }
@@ -105,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "fainal"
+  "defaultProject": "first"
 }
